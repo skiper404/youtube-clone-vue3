@@ -33,12 +33,9 @@ const isActive = ref("All");
     <ul
       class="scrollbar-hide flex items-center gap-2 overflow-auto px-2 py-1 whitespace-nowrap"
     >
-      <CategoryItem
-        v-for="category in categories"
-        :key="category"
-        :category="category"
-        :is-active="isActive"
-      />
+      <li v-for="category in categories" :key="category">
+        <CategoryItem :category="category" :is-active="isActive" />
+      </li>
     </ul>
   </section>
 </template>

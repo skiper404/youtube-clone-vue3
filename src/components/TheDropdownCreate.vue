@@ -1,9 +1,15 @@
 <script setup>
 import { PlusIcon } from "@heroicons/vue/24/outline";
-
 import UserUpload from "./icons/userlogos/UserUpload.vue";
 import UserCrearePost from "./icons/userlogos/UserCrearePost.vue";
 import UserLive from "./icons/userlogos/UserLive.vue";
+import DropdownCreateListItem from "./DropdownCreateListItem.vue";
+
+const menuItems = [
+  { label: "Upload", icon: UserUpload },
+  { label: "Go Live", icon: UserLive },
+  { label: "Create post", icon: UserCrearePost },
+];
 </script>
 
 <template>
@@ -21,21 +27,12 @@ import UserLive from "./icons/userlogos/UserLive.vue";
       class="fixed top-10 right-4 hidden w-[200px] rounded-xl bg-[#242424] peer-checked:block"
     >
       <ul class="my-2 rounded-xl text-sm">
-        <li class="py-2 hover:bg-[#555555]">
-          <a href="#" class="flex items-center gap-4 px-6 outline-none">
-            <UserUpload class="h-6" /> Upload video
-          </a>
-        </li>
-        <li class="py-2 hover:bg-[#555555]">
-          <a href="#" class="flex items-center gap-4 px-6 outline-none"
-            ><UserLive class="h-6" /> Go Live
-          </a>
-        </li>
-        <li class="py-2 hover:bg-[#555555]">
-          <a href="#" class="flex items-center gap-4 px-6 outline-none">
-            <UserCrearePost class="h-6" />
-            Create post
-          </a>
+        <li
+          class="py-2 hover:bg-[#555555]"
+          v-for="item in menuItems"
+          :key="item.label"
+        >
+          <DropdownCreateListItem :item="item" />
         </li>
       </ul>
     </section>

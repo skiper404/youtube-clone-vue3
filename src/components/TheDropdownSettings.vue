@@ -14,6 +14,25 @@ import UserKeyboard from "./icons/userlogos/UserKeyboard.vue";
 import UserSettings from "./icons/userlogos/UserSettings.vue";
 import UserHelp from "./icons/userlogos/UserHelp.vue";
 import UserFeedback from "./icons/userlogos/UserFeedback.vue";
+import DropdownSettingListItem from "./DropdownSettingListItem.vue";
+
+const settingItems = [
+  { label: "Google Account", icon: UserGoogleLogo },
+  { label: "Switch Account", icon: UserSwitchLogo, submenu: true },
+  { label: "Sign out", icon: UserSignOutLogo },
+  { label: "YouTube studio", icon: UserYouTubeStudio },
+  { label: "Your Premium Benefits", icon: UserPremium },
+  { label: "Purchases and memberships", icon: UserPurchase },
+  { label: "Your data in YouTube", icon: UserData },
+  { label: "Appearence: Device theme", icon: UserAppearence, submenu: true },
+  { label: "Restricted Mode: Off", icon: UserMode, submenu: true },
+  { label: "Language: English", icon: UserLanguage, submenu: true },
+  { label: "Location: Ukraine", icon: UserLocation, submenu: true },
+  { label: "Keyboard shortcuts", icon: UserKeyboard },
+  { label: "Settings", icon: UserSettings },
+  { label: "Help", icon: UserHelp },
+  { label: "Send feedback", icon: UserFeedback },
+];
 </script>
 
 <template>
@@ -21,7 +40,7 @@ import UserFeedback from "./icons/userlogos/UserFeedback.vue";
     <input type="checkbox" id="usermenu" class="peer hidden" />
     <label for="usermenu">
       <img
-        :src="`https://picsum.photos/560/315`"
+        :src="`https://picsum.photos/200/200`"
         alt="video_preview"
         class="h-10 w-10 rounded-full"
       />
@@ -45,84 +64,8 @@ import UserFeedback from "./icons/userlogos/UserFeedback.vue";
       </div>
       <hr class="my-1 py-1 text-[#555555]" />
       <ul class="text-sm">
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserGoogleLogo class="h-6" />Google Account</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserSwitchLogo class="h-6" />Switch Account</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserSignOutLogo class="h-6" />Sign out</a
-          >
-        </li>
-        <hr class="my-2 text-[#555555]" />
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserYouTubeStudio class="h-6" />YouTube studio</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserPremium class="h-6" />Your Premium Benefits</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserPurchase class="h-6" />Purchases and memberships</a
-          >
-        </li>
-        <hr class="my-2 text-[#555555]" />
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserData class="h-6" />Your data in YouTube</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserAppearence class="h-6" />Appearence: Device theme</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserLanguage class="h-6" />Language: English</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserMode class="h-6" />Restricted Mode: Off</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserLocation class="h-6" />Location: Ukraine</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserKeyboard class="h-6" />Keyboard shortcuts</a
-          >
-        </li>
-        <hr class="my-2 text-[#555555]" />
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserSettings class="h-6" />Settings</a
-          >
-        </li>
-        <hr class="my-2 text-[#555555]" />
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserHelp class="h-6" />Help</a
-          >
-        </li>
-        <li class="p-2 hover:bg-[#555555]">
-          <a href="" class="flex items-center gap-4 outline-none"
-            ><UserFeedback class="h-6" />Send feedback</a
-          >
+        <li v-for="item in settingItems" :key="item.label">
+          <DropdownSettingListItem :item="item" />
         </li>
       </ul>
     </section>
