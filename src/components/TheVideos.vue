@@ -29,7 +29,7 @@ const videos = [
 </script>
 
 <template>
-  <main class="px-4 pt-30 sm:px-10 md:ml-[80px] md:px-20 xl:px-40">
+  <main class="px-4 pt-30 sm:px-10 md:ml-[80px] md:px-20 xl:pl-50">
     <section
       class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
     >

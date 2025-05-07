@@ -25,7 +25,7 @@ const isActive = ref("All");
 
 <template>
   <section
-    class="fixed top-14 right-0 left-0 z-10 bg-[#121212]/95 py-1 pl-2 text-[16px] md:pl-20"
+    class="fixed top-14 right-0 left-0 z-10 bg-[#121212]/95 p-2 text-[16px] md:left-36 xl:left-66"
   >
     <div
       class="pointer-events-none absolute inset-0 -z-10 backdrop-blur-xs"

@@ -3,6 +3,7 @@ import { BellIcon } from "@heroicons/vue/24/outline";
 
 import UserSettings from "./icons/userlogos/UserSettings.vue";
 import DropdownNotificationListItem from "./DropdownNotificationListItem.vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 const notificationItems = [
   { label: "Arthas is live: Последний из вас", release: "1 day ago" },
@@ -19,18 +20,31 @@ const notificationItems = [
     release: "5 days ago",
   },
 ];
+
+const isOpen = ref(false);
+const wrapper = ref(null);
+
+const handleClickOutside = (event) => {
+  if (wrapper.value && !wrapper.value.contains(event.target)) {
+    isOpen.value = false;
+  }
+};
+
+onMounted(() => window.addEventListener("click", handleClickOutside));
+onUnmounted(() => window.removeEventListener("click", handleClickOutside));
 </script>
 
 <template>
-  <div class="flex">
-    <input type="checkbox" id="notifications" class="peer hidden" />
-    <label for="notifications">
-      <div class="rounded-full p-1 hover:bg-neutral-600">
-        <BellIcon class="size-7" />
-      </div>
-    </label>
+  <div class="relative" ref="wrapper">
+    <button
+      class="rounded-full p-1 hover:bg-neutral-600"
+      @click="isOpen = true"
+    >
+      <BellIcon class="size-7" />
+    </button>
     <section
-      class="fixed top-12 right-18 hidden w-[500px] rounded-2xl bg-[#242424] pb-4 text-sm peer-checked:block"
+      v-if="isOpen"
+      class="fixed top-12 right-18 w-[500px] rounded-2xl bg-[#242424] pb-4 text-sm"
     >
       <div class="flex items-center justify-between p-4">
         Notifications

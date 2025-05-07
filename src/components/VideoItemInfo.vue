@@ -14,7 +14,7 @@ const { title, channel } = props.video;
     />
     <div>
       <div class="mb-1 text-left font-semibold">{{ title }}</div>
-      <a href="" class="">
+      <a href="" class="flex items-center gap-1">
         <span class="">{{ channel }}</span>
         <CheckCircleIcon class="h-4" />
       </a>
