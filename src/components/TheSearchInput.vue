@@ -1,4 +1,5 @@
 <script setup>
+import BaseTooltip from "./BaseTooltip.vue";
 import { XMarkIcon, MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
 </script>
 
@@ -12,12 +13,14 @@ import { XMarkIcon, MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
     <button type="button" class="absolute top-0 right-16">
       <XMarkIcon class="h-10 p-1" />
     </button>
-    <button
-      type="submit"
-      class="rounded-r-full border border-neutral-800 bg-neutral-800 px-4 py-2 hover:bg-neutral-600"
-    >
-      <MagnifyingGlassIcon class="h-6" />
-    </button>
+    <BaseTooltip label="Search">
+      <button
+        type="submit"
+        class="rounded-r-full border border-neutral-800 bg-neutral-800 px-4 py-2 hover:bg-neutral-600"
+      >
+        <MagnifyingGlassIcon class="h-6" />
+      </button>
+    </BaseTooltip>
   </form>
 </template>
 

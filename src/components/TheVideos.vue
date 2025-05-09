@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import TheVideoItem from "./TheVideoItem.vue";
 
 const videos = [
@@ -26,6 +27,10 @@ const videos = [
   { title: "Making My Own Merch!", channel: "VibeCraft" },
   { title: "This Changed Everything", channel: "ScrollStopper" },
 ];
+
+const openIndex = ref(null);
+
+const setOpenIndex = (index) => (openIndex.value = index);
 </script>
 
 <template>
@@ -38,6 +43,8 @@ const videos = [
         :key="index"
         :index="index"
         :video="video"
+        :open-index="openIndex"
+        @set-open-index="setOpenIndex"
       />
     </section>
   </main>

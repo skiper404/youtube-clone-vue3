@@ -16,6 +16,7 @@ const subscriptionsSection = [
   <div class="px-10 py-1 text-left font-semibold">Subscriptions</div>
   <ul>
     <li
+      :title="item.label"
       v-for="item in subscriptionsSection"
       :key="item.label"
       class="mx-4 flex items-center rounded-xl px-2 py-1 hover:bg-[#232323]"
@@ -25,7 +26,7 @@ const subscriptionsSection = [
         alt="video_preview"
         class="h-8 w-8 rounded-full"
       />
-      <SidebarItem :item="item" />
+      <SidebarItem :item="item" :title="item.label" />
     </li>
   </ul>
   <hr class="m-2 border-1 border-[#373737]" />

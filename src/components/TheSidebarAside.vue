@@ -60,11 +60,11 @@ const sidebarItems = [
     <SidebarCopyright />
   </aside>
   <aside
-    class="fixed top-14 bottom-0 left-0 z-20 mx-2 hidden w-[80px] bg-[#121212] md:block xl:hidden"
+    class="fixed top-14 bottom-0 left-0 z-10 mx-2 hidden w-[80px] bg-[#121212] md:block xl:hidden"
   >
     <ul>
       <li v-for="item in sidebarItems" :key="item.label">
-        <SidebarSmallItem :item="item" />
+        <SidebarSmallItem :item="item" :title="item.label" />
       </li>
     </ul>
   </aside>

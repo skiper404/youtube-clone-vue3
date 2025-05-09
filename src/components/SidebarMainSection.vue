@@ -16,7 +16,7 @@ const mainSection = [
 
 <template>
   <ul>
-    <li v-for="item in mainSection" :key="item.label">
+    <li v-for="item in mainSection" :key="item.label" :title="item.label">
       <SidebarItem :item="item" />
     </li>
   </ul>

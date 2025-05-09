@@ -1,8 +1,14 @@
 <script setup>
 import { SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/vue/24/outline";
-import SubsLogo from "./icons/SubsLogo.vue";
+import SubsLogoOn from "./icons/SubsLogoOn.vue";
+import SubsLogoOff from "./icons/SubsLogoOff.vue";
+
+import { ref } from "vue";
 
 const props = defineProps({ index: Number });
+
+const enableSound = ref(false);
+const enableSubtitles = ref(true);
 </script>
 
 <template>
@@ -13,20 +19,33 @@ const props = defineProps({ index: Number });
       class="w-full rounded-xl"
     />
     <span
-      class="absolute top-1 right-1 z-10 h-10 w-10 rounded-full bg-[#121212] p-2 opacity-0 transition duration-300 group-hover:opacity-100"
+      v-if="enableSound"
+      @click="enableSound = false"
+      class="absolute top-1 right-1 z-10 h-10 w-10 scale-0 rounded-full bg-[#121212]/70 p-2 opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
       ><SpeakerXMarkIcon />
     </span>
     <span
-      class="absolute top-1 right-12 z-10 h-10 w-10 rounded-full bg-[#121212] p-2 opacity-0 transition duration-300 group-hover:opacity-100"
+      v-if="!enableSound"
+      @click="enableSound = true"
+      class="absolute top-1 right-1 z-10 h-10 w-10 scale-0 rounded-full bg-[#121212]/70 p-2 opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
       ><SpeakerWaveIcon />
     </span>
     <span
-      class="absolute top-12 right-1 z-10 opacity-0 transition duration-300 group-hover:opacity-100"
+      v-if="!enableSubtitles"
+      @click="enableSubtitles = true"
+      class="absolute top-12 right-1 z-10 h-10 w-10 scale-0 rounded-full bg-[#121212]/70 p-2 opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
     >
-      <SubsLogo />
+      <SubsLogoOn />
     </span>
     <span
-      class="absolute right-1 bottom-1 rounded bg-[#121212] px-0.5 text-sm font-semibold"
+      v-if="enableSubtitles"
+      @click="enableSubtitles = false"
+      class="absolute top-12 right-1 z-10 h-10 w-10 scale-0 rounded-full bg-[#121212]/70 p-2 opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
+    >
+      <SubsLogoOff />
+    </span>
+    <span
+      class="absolute right-1 bottom-1 rounded bg-[#121212]/70 px-0.5 text-sm font-semibold"
       >{{
         index.toString().padStart(2, 1) + ":" + index.toString().padStart(2, 1)
       }}

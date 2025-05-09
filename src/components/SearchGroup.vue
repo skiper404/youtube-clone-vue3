@@ -1,6 +1,7 @@
 <script setup>
 import TheSearchVoice from "./TheSearchVoice.vue";
 import TheSearchInput from "./TheSearchInput.vue";
+import BaseTooltip from "./BaseTooltip.vue";
 </script>
 
 <template>
@@ -9,7 +10,9 @@ import TheSearchInput from "./TheSearchInput.vue";
       class="mx-auto flex w-full max-w-3xl items-center justify-center gap-2 px-2"
     >
       <TheSearchInput />
-      <TheSearchVoice />
+      <BaseTooltip label="Search with voice">
+        <TheSearchVoice class="border" />
+      </BaseTooltip>
     </div>
   </div>
 </template>

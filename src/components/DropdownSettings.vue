@@ -15,7 +15,8 @@ import UserSettings from "./icons/userlogos/UserSettings.vue";
 import UserHelp from "./icons/userlogos/UserHelp.vue";
 import UserFeedback from "./icons/userlogos/UserFeedback.vue";
 import DropdownSettingListItem from "./DropdownSettingListItem.vue";
-import { onUnmounted, ref, onMounted } from "vue";
+import { onUnmounted, ref, onMounted, watch } from "vue";
+import BaseTooltip from "./BaseTooltip.vue";
 
 const settingItems = [
   { label: "Google Account", icon: UserGoogleLogo },
@@ -46,6 +47,27 @@ const handleClickOutside = (event) => {
 
 onMounted(() => window.addEventListener("click", handleClickOutside));
 onUnmounted(() => window.removeEventListener("click", handleClickOutside));
+
+function handleKeydown(event) {
+  if (event.key === "Escape") {
+    isOpen.value = false;
+  }
+}
+
+watch(
+  () => isOpen.value,
+  (newVal) => {
+    if (newVal) {
+      window.addEventListener("keydown", handleKeydown);
+    } else {
+      window.removeEventListener("keydown", handleKeydown);
+    }
+  },
+);
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
 </script>
 
 <template>
@@ -57,31 +79,40 @@ onUnmounted(() => window.removeEventListener("click", handleClickOutside));
       @click="isOpen = true"
     />
   </div>
-  <section
-    v-if="isOpen"
-    class="fixed top-12 right-4 w-[300px] overflow-auto rounded-2xl bg-[#242424] peer-checked:block"
+  <transition
+    enter-active-class="transition duration-100 ease-linear"
+    enter-from-class="opacity-0 scale-50 -translate-y-20"
+    enter-to-class="opacity-100 scale-100 tranlate-y-0"
+    leave-active-class="transition duration-100 ease-linear"
+    leave-from-class="opacity-100 scale-100 -translate-y-0 "
+    leave-to-class="opacity-0 -translate-y-20 scale-50"
   >
-    <div class="flex">
-      <img
-        :src="`https://picsum.photos/560/315`"
-        alt="video_preview"
-        class="m-2 h-10 w-10 rounded-full px-2"
-      />
-      <div class="flex flex-col items-start py-2">
-        <span>John Doe</span>
-        <span>@Joundoe12</span>
-        <a href="#" class="cursor-pointer py-1 text-blue-400 outline-none"
-          >View your channel</a
-        >
+    <section
+      v-if="isOpen"
+      class="fixed top-12 right-4 w-[300px] overflow-auto rounded-2xl bg-[#242424] peer-checked:block"
+    >
+      <div class="flex">
+        <img
+          :src="`https://picsum.photos/560/315`"
+          alt="video_preview"
+          class="m-2 h-10 w-10 rounded-full px-2"
+        />
+        <div class="flex flex-col items-start py-2">
+          <span>John Doe</span>
+          <span>@Joundoe12</span>
+          <a href="#" class="cursor-pointer py-1 text-blue-400 outline-none"
+            >View your channel</a
+          >
+        </div>
       </div>
-    </div>
-    <hr class="my-1 py-1 text-[#555555]" />
-    <ul class="text-sm">
-      <li v-for="item in settingItems" :key="item.label">
-        <DropdownSettingListItem :item="item" />
-      </li>
-    </ul>
-  </section>
+      <hr class="my-1 py-1 text-[#555555]" />
+      <ul class="text-sm">
+        <li v-for="item in settingItems" :key="item.label">
+          <DropdownSettingListItem :item="item" />
+        </li>
+      </ul>
+    </section>
+  </transition>
 </template>
 
 <style lang="scss" scoped></style>

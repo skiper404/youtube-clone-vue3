@@ -1,5 +1,5 @@
 <template>
-  <div class="h-10 w-10 rounded-full bg-[#121212] p-2">
+  <div>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
       <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
       <path
