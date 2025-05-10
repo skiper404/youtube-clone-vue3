@@ -1,15 +1,12 @@
 <script setup>
 import { PlusIcon } from "@heroicons/vue/24/outline";
-import UserUpload from "./icons/userlogos/UserUpload.vue";
-import UserCrearePost from "./icons/userlogos/UserCrearePost.vue";
-import UserLive from "./icons/userlogos/UserLive.vue";
 import DropdownCreateListItem from "./DropdownCreateListItem.vue";
 import { ref, onMounted, onUnmounted, watch } from "vue";
 
 const menuItems = [
-  { label: "Upload", icon: UserUpload },
-  { label: "Go Live", icon: UserLive },
-  { label: "Create post", icon: UserCrearePost },
+  { label: "Upload", icon: "user-upload" },
+  { label: "Go Live", icon: "user-live" },
+  { label: "Create post", icon: "user-create" },
 ];
 
 const isOpen = ref(false);
@@ -49,7 +46,7 @@ onUnmounted(() => {
 <template>
   <div ref="wrapper" class="relative">
     <button
-      class="flex h-10 items-center justify-center gap-2 rounded-full bg-neutral-800 px-3 hover:bg-neutral-600"
+      class="flex h-10 cursor-pointer items-center justify-center gap-2 rounded-full bg-neutral-800 px-3 hover:bg-neutral-600"
       @click="isOpen = true"
     >
       <PlusIcon class="size-6" />

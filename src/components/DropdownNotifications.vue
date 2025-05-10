@@ -1,8 +1,8 @@
 <script setup>
 import { BellIcon } from "@heroicons/vue/24/outline";
 import { onMounted, onUnmounted, ref, watch } from "vue";
-import UserSettings from "./icons/userlogos/UserSettings.vue";
 import DropdownNotificationListItem from "./DropdownNotificationListItem.vue";
+import BaseIcon from "./BaseIcon.vue";
 
 const notificationItems = [
   { label: "Arthas is live: Последний из вас", release: "1 day ago" },
@@ -56,9 +56,8 @@ watch(
 
 <template>
   <div class="relative" ref="wrapper">
-
     <button
-      class="rounded-full p-1 hover:bg-neutral-600"
+      class="cursor-pointer rounded-full p-1 hover:bg-neutral-600"
       @click="isOpen = true"
     >
       <BellIcon class="size-7" />
@@ -76,8 +75,8 @@ watch(
         class="fixed top-12 right-18 w-[500px] rounded-2xl bg-[#242424] pb-4 text-sm"
       >
         <div class="flex items-center justify-between p-4">
-          Notifications
-          <UserSettings class="h-8 rounded-full p-1 hover:bg-[#555555]" />
+          <span> Notifications </span>
+          <BaseIcon name="user-settings" />
         </div>
         <hr class="my-1 py-1 text-[#555555]" />
         <div>

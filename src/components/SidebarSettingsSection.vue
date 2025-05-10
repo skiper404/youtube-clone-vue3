@@ -1,16 +1,11 @@
 <script setup>
 import SidebarItem from "./SidebarItem.vue";
 
-import YouTubeSettingsLogo from "./icons/YouTubeSettingsLogo.vue";
-import ReportHistoryLogo from "./icons/ReportHistoryLogo.vue";
-import HelpLogo from "./icons/HelpLogo.vue";
-import SendFeedbackLogo from "./icons/SendFeedbackLogo.vue";
-
 const settingsSection = [
-  { label: "Setting", icon: YouTubeSettingsLogo },
-  { label: "Report history", icon: ReportHistoryLogo },
-  { label: "Help", icon: HelpLogo },
-  { label: "Send feedback", icon: SendFeedbackLogo },
+  { label: "Setting", icon: "youtube-settings" },
+  { label: "Report history", icon: "youtube-history" },
+  { label: "Help", icon: "youtube-help" },
+  { label: "Send feedback", icon: "youtube-feedback" },
 ];
 </script>
 

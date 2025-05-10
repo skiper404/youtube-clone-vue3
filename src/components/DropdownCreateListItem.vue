@@ -1,10 +1,12 @@
 <script setup>
+import BaseIcon from "./BaseIcon.vue";
+
 const props = defineProps(["item"]);
 </script>
 
 <template>
   <a href="#" class="flex items-center gap-4 px-6 outline-none">
-    <component :is="item.icon" class="h-6" />
+    <BaseIcon :name="item.icon" />
     <hr />
     <span> {{ item.label }} </span>
   </a>

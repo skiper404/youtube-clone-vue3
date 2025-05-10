@@ -22,12 +22,14 @@ const emit = defineEmits({ setOpenIndex: null });
     />
     <div>
       <div class="mb-1 text-left font-semibold" :title="title">{{ title }}</div>
-      <BaseTooltip :label="channel">
-        <a href="" class="flex items-center gap-1 text-[#aaaaaa]">
+      <a href="" class="flex items-center gap-1 text-[#aaaaaa]">
+        <BaseTooltip :label="channel" top>
           <span>{{ channel }}</span>
+        </BaseTooltip>
+        <BaseTooltip label="Verified" top>
           <CheckCircleIcon class="h-4" />
-        </a>
-      </BaseTooltip>
+        </BaseTooltip>
+      </a>
       <div class="flex items-center gap-1 text-sm text-[#aaaaaa]">
         <span>{{ index + 1 }}M views</span>
         &middot;

@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from "vue";
+import BaseIcon from "./BaseIcon.vue";
 const props = defineProps(["category", "isActive"]);
 
 const classes = computed(() => [
@@ -9,6 +10,7 @@ const classes = computed(() => [
 </script>
 
 <template>
+  <BaseIcon name="youtube" class="h-10" />
   <a href="#" :class="classes">{{ category }}</a>
 </template>
 

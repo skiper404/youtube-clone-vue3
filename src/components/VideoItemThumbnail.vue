@@ -1,7 +1,6 @@
 <script setup>
 import { SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/vue/24/outline";
-import SubsLogoOn from "./icons/SubsLogoOn.vue";
-import SubsLogoOff from "./icons/SubsLogoOff.vue";
+import BaseIcon from "./BaseIcon.vue";
 
 import { ref } from "vue";
 
@@ -35,14 +34,14 @@ const enableSubtitles = ref(true);
       @click="enableSubtitles = true"
       class="absolute top-12 right-1 z-10 h-10 w-10 scale-0 rounded-full bg-[#121212]/70 p-2 opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
     >
-      <SubsLogoOn />
+      <BaseIcon name="subs-logo-off" />
     </span>
     <span
       v-if="enableSubtitles"
       @click="enableSubtitles = false"
       class="absolute top-12 right-1 z-10 h-10 w-10 scale-0 rounded-full bg-[#121212]/70 p-2 opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100"
     >
-      <SubsLogoOff />
+      <BaseIcon name="subs-logo-on" />
     </span>
     <span
       class="absolute right-1 bottom-1 rounded bg-[#121212]/70 px-0.5 text-sm font-semibold"

@@ -1,22 +1,14 @@
 <script setup>
-import TrendingLogo from "./icons/TrendingLogo.vue";
-import MusicLogo from "./icons/MusicLogo.vue";
-import MoviesLogo from "./icons/MoviesLogo.vue";
-import GamingLogo from "./icons/GamingLogo.vue";
-import NewsLogo from "./icons/NewsLogo.vue";
-import SportsLogo from "./icons/SportsLogo.vue";
-import LearningLogo from "./icons/LearningLogo.vue";
-
 import SidebarItem from "./SidebarItem.vue";
 
 const exploreSection = [
-  { label: "Trending", icon: TrendingLogo },
-  { label: "Music", icon: MusicLogo },
-  { label: "Movies", icon: MoviesLogo },
-  { label: "Gaming", icon: GamingLogo },
-  { label: "News", icon: NewsLogo },
-  { label: "Sports", icon: SportsLogo },
-  { label: "Learning", icon: LearningLogo },
+  { label: "Trending", icon: "youtube-trending" },
+  { label: "Music", icon: "youtube-music" },
+  { label: "Movies", icon: "youtube-movies" },
+  { label: "Gaming", icon: "youtube-gaming" },
+  { label: "News", icon: "youtube-news" },
+  { label: "Sports", icon: "youtube-sports" },
+  { label: "Learning", icon: "youtube-learning" },
 ];
 </script>
 

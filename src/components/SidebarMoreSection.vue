@@ -1,14 +1,10 @@
 <script setup>
-import YouTubeStudioRed from "./icons/YouTubeStudioRed.vue";
-import YouTubeMusicLogoRed from "./icons/YouTubeMusicLogoRed.vue";
-import YouTubeKidsLogoRed from "./icons/YouTubeKidsLogoRed.vue";
-
 import SidebarItem from "./SidebarItem.vue";
 
 const moreSection = [
-  { label: "YouTube Studio", icon: YouTubeStudioRed },
-  { label: "YouTube Music", icon: YouTubeMusicLogoRed },
-  { label: "YouTube Kids", icon: YouTubeKidsLogoRed },
+  { label: "YouTube Studio", icon: "youtube-studio" },
+  { label: "YouTube Music", icon: "youtube-music-red" },
+  { label: "YouTube Kids", icon: "youtube-kids" },
 ];
 </script>
 

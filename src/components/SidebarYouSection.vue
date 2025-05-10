@@ -1,27 +1,24 @@
 <script setup>
 import { ChevronRightIcon } from "@heroicons/vue/24/solid";
-import HistoryLogo from "./icons/HistoryLogo.vue";
-import PlaylistLogo from "./icons/PlaylistLogo.vue";
-import YourVideosLogo from "./icons/YourVideosLogo.vue";
-import WatchLaterLogo from "./icons/WatchLaterLogo.vue";
-import LikedVideosLogo from "./icons/LikedVideosLogo.vue";
-import DownloadsLogo from "./icons/DownloadsLogo.vue";
-
 import SidebarItem from "./SidebarItem.vue";
 
 const youSection = [
-  { label: "You", icon: ChevronRightIcon },
-  { label: "History", icon: HistoryLogo },
-  { label: "Playlists", icon: PlaylistLogo },
-  { label: "Your videos", icon: YourVideosLogo },
-  { label: "Watch later", icon: WatchLaterLogo },
-  { label: "Liked videos", icon: LikedVideosLogo },
-  { label: "Downloads", icon: DownloadsLogo },
+  { label: "History", icon: "youtube-history" },
+  { label: "Playlists", icon: "youtube-playlist" },
+  { label: "Your videos", icon: "youtube-videos" },
+  { label: "Watch later", icon: "youtube-watch-later" },
+  { label: "Liked videos", icon: "youtube-like" },
+  { label: "Downloads", icon: "youtube-downloads" },
 ];
 </script>
 
 <template>
   <ul>
+    <li
+      class="mx-4 flex items-center justify-between gap-6 rounded-xl px-4 py-2 font-semibold outline-none hover:bg-[#232323]"
+    >
+      <span>You</span><ChevronRightIcon class="h-6" />
+    </li>
     <li v-for="item in youSection" :key="item.label" :title="item.label">
       <SidebarItem :item="item" />
     </li>

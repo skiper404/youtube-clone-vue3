@@ -1,39 +1,23 @@
 <script setup>
-import UserGoogleLogo from "./icons/userlogos/UserGoogleLogo.vue";
-import UserSwitchLogo from "./icons/userlogos/UserSwitchLogo.vue";
-import UserSignOutLogo from "./icons/userlogos/UserSignOutLogo.vue";
-import UserYouTubeStudio from "./icons/userlogos/UserYouTubeStudio.vue";
-import UserPremium from "./icons/userlogos/UserPremium.vue";
-import UserPurchase from "./icons/userlogos/UserPurchase.vue";
-import UserData from "./icons/userlogos/UserData.vue";
-import UserAppearence from "./icons/userlogos/UserAppearence.vue";
-import UserLanguage from "./icons/userlogos/UserLanguage.vue";
-import UserMode from "./icons/userlogos/UserMode.vue";
-import UserLocation from "./icons/userlogos/UserLocation.vue";
-import UserKeyboard from "./icons/userlogos/UserKeyboard.vue";
-import UserSettings from "./icons/userlogos/UserSettings.vue";
-import UserHelp from "./icons/userlogos/UserHelp.vue";
-import UserFeedback from "./icons/userlogos/UserFeedback.vue";
 import DropdownSettingListItem from "./DropdownSettingListItem.vue";
 import { onUnmounted, ref, onMounted, watch } from "vue";
-import BaseTooltip from "./BaseTooltip.vue";
 
 const settingItems = [
-  { label: "Google Account", icon: UserGoogleLogo },
-  { label: "Switch Account", icon: UserSwitchLogo, submenu: true },
-  { label: "Sign out", icon: UserSignOutLogo },
-  { label: "YouTube studio", icon: UserYouTubeStudio },
-  { label: "Your Premium Benefits", icon: UserPremium },
-  { label: "Purchases and memberships", icon: UserPurchase },
-  { label: "Your data in YouTube", icon: UserData },
-  { label: "Appearence: Device theme", icon: UserAppearence, submenu: true },
-  { label: "Restricted Mode: Off", icon: UserMode, submenu: true },
-  { label: "Language: English", icon: UserLanguage, submenu: true },
-  { label: "Location: Ukraine", icon: UserLocation, submenu: true },
-  { label: "Keyboard shortcuts", icon: UserKeyboard },
-  { label: "Settings", icon: UserSettings },
-  { label: "Help", icon: UserHelp },
-  { label: "Send feedback", icon: UserFeedback },
+  { label: "Google Account", icon: "user-google" },
+  { label: "Switch Account", icon: "user-switch" },
+  { label: "Sign out", icon: "user-signout" },
+  { label: "YouTube studio", icon: "user-studio" },
+  { label: "Your Premium Benefits", icon: "user-premium" },
+  { label: "Purchases and memberships", icon: "user-purchase" },
+  { label: "Your data in YouTube", icon: "user-data" },
+  { label: "Appearence: Device theme", icon: "user-apperiance" },
+  { label: "Restricted Mode: Off", icon: "user-mode" },
+  { label: "Language: English", icon: "user-language" },
+  { label: "Location: Ukraine", icon: "user-location" },
+  { label: "Keyboard shortcuts", icon: "user-keyboard" },
+  { label: "Settings", icon: "user-settings" },
+  { label: "Help", icon: "user-help" },
+  { label: "Send feedback", icon: "user-feedback" },
 ];
 
 const isOpen = ref(false);
@@ -91,11 +75,11 @@ onUnmounted(() => {
       v-if="isOpen"
       class="fixed top-12 right-4 w-[300px] overflow-auto rounded-2xl bg-[#242424] peer-checked:block"
     >
-      <div class="flex">
+      <div class="mx-2 flex">
         <img
-          :src="`https://picsum.photos/560/315`"
+          :src="`https://picsum.photos/500/500`"
           alt="video_preview"
-          class="m-2 h-10 w-10 rounded-full px-2"
+          class="m-2 h-10 w-10 rounded-full"
         />
         <div class="flex flex-col items-start py-2">
           <span>John Doe</span>

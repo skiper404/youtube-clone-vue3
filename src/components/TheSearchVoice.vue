@@ -2,7 +2,6 @@
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { MicrophoneIcon } from "@heroicons/vue/24/solid";
 import { onMounted, onUnmounted, ref, watch } from "vue";
-import BaseTooltip from "./BaseTooltip.vue";
 
 const isOpen = ref(false);
 const wrapper = ref(null);

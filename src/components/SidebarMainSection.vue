@@ -1,16 +1,11 @@
 <script setup>
-import { HomeIcon } from "@heroicons/vue/24/solid";
-import ShortsLogo from "./icons/ShortsLogo.vue";
-import SubscriptionsLogo from "./icons/SubscriptionsLogo.vue";
-import YouTubeMusicLogo from "./icons/YouTubeMusicLogo.vue";
-
 import SidebarItem from "./SidebarItem.vue";
 
 const mainSection = [
-  { label: "Home", icon: HomeIcon },
-  { label: "Shorts", icon: ShortsLogo },
-  { label: "Subscriptions", icon: SubscriptionsLogo },
-  { label: "YouTube Music", icon: YouTubeMusicLogo },
+  { label: "Home", icon: "youtube-home" },
+  { label: "Shorts", icon: "youtube-shorts" },
+  { label: "Subscriptions", icon: "youtube-subscriptions" },
+  { label: "YouTube Music", icon: "youtube-music" },
 ];
 </script>
 

@@ -1,24 +1,18 @@
 <script setup>
-import SubMenuAddToQuery from "./icons/SubMenuAddToQuery.vue";
-import SubMenuDontRecommend from "./icons/SubMenuDontRecommend.vue";
-import SubMenuDownload from "./icons/SubMenuDownload.vue";
-import SubMenuNotInterested from "./icons/SubMenuNotInterested .vue";
-import SubMenuReport from "./icons/SubMenuReport.vue";
-import SubMenuSaveToPlaylist from "./icons/SubMenuSaveToPlaylist.vue";
-import SubMenuSaveToWatchLater from "./icons/SubMenuSaveToWatchLater.vue";
-import SubMenuShare from "./icons/SubMenuShare.vue";
-
 import VideoSubMenuItem from "./VideoSubMenuItem.vue";
 
 const submenuItems = [
-  { label: "Add to queue", icon: SubMenuAddToQuery },
-  { label: "Save to Watch later", icon: SubMenuSaveToWatchLater },
-  { label: "Save to playlist", icon: SubMenuSaveToPlaylist },
-  { label: "Download", icon: SubMenuDownload },
-  { label: "Share", icon: SubMenuShare },
-  { label: "Not interested", icon: SubMenuNotInterested },
-  { label: "Don't recommend channel", icon: SubMenuDontRecommend },
-  { label: "Report", icon: SubMenuReport },
+  { label: "Add to queue", icon: "youtube-submenu-add" },
+  { label: "Save to Watch later", icon: "youtube-submenu-watch-later" },
+  { label: "Save to playlist", icon: "youtube-submenu-playlist" },
+  { label: "Download", icon: "youtube-submenu-downloads" },
+  { label: "Share", icon: "youtube-submenu-share" },
+  { label: "Not interested", icon: "youtube-submenu-not-interested" },
+  {
+    label: "Don't recommend channel",
+    icon: "youtube-submenu-don't-recommended",
+  },
+  { label: "Report", icon: "youtube-submenu-report" },
 ];
 </script>
 

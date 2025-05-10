@@ -1,4 +1,6 @@
 <script setup>
+import BaseIcon from "./BaseIcon.vue";
+
 const props = defineProps({ item: Object });
 const { label, icon } = props.item;
 </script>
@@ -6,9 +8,9 @@ const { label, icon } = props.item;
 <template>
   <a
     href="#"
-    class="mx-4 flex items-center gap-6 rounded-xl px-4 py-2 text-sm outline-none hover:bg-[#232323]"
+    class="mx-4 mr-auto flex items-center gap-6 rounded-xl px-4 py-2 text-sm outline-none hover:bg-[#232323]"
   >
-    <component :is="icon" class="h-6"></component>
+    <BaseIcon :name="icon"/>
     <span>{{ label }}</span>
   </a>
 </template>
