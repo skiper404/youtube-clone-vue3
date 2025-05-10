@@ -29,7 +29,9 @@ const isActive = ref("All");
   >
     <div
       class="pointer-events-none absolute inset-0 -z-10 backdrop-blur-xs"
-    ></div>
+    >
+
+</div>
     <ul
       class="scrollbar-hide flex items-center gap-2 overflow-auto px-2 py-1 whitespace-nowrap"
     >

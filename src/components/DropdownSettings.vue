@@ -1,102 +1,110 @@
 <script setup>
-import DropdownSettingListItem from "./DropdownSettingListItem.vue";
-import { onUnmounted, ref, onMounted, watch } from "vue";
+import { ref, onMounted, onUnmounted, watch, computed, reactive } from "vue";
+import DropdownSettingsMain from "./DropdownSettingsMain.vue";
+import DropdownSettingsLanguage from "./DropdownSettingsLanguage.vue";
+import DropdownSettingsAppearance from "./DropdownSettingsAppearance.vue";
+import DropdownSettingsMode from "./DropdownSettingsMode.vue";
+import DropdownSettingsLocation from "./DropdownSettingsLocation.vue";
+import DropdownSettingsSwitchUser from "./DropdownSettingsSwitchUser.vue";
 
-const settingItems = [
-  { label: "Google Account", icon: "user-google" },
-  { label: "Switch Account", icon: "user-switch" },
-  { label: "Sign out", icon: "user-signout" },
-  { label: "YouTube studio", icon: "user-studio" },
-  { label: "Your Premium Benefits", icon: "user-premium" },
-  { label: "Purchases and memberships", icon: "user-purchase" },
-  { label: "Your data in YouTube", icon: "user-data" },
-  { label: "Appearence: Device theme", icon: "user-apperiance" },
-  { label: "Restricted Mode: Off", icon: "user-mode" },
-  { label: "Language: English", icon: "user-language" },
-  { label: "Location: Ukraine", icon: "user-location" },
-  { label: "Keyboard shortcuts", icon: "user-keyboard" },
-  { label: "Settings", icon: "user-settings" },
-  { label: "Help", icon: "user-help" },
-  { label: "Send feedback", icon: "user-feedback" },
-];
+const isOpenMain = ref(false);
+const selectedMenu = ref("main");
 
-const isOpen = ref(false);
-const wrapper = ref(null);
+const dropdownOptions = reactive({
+  language: { id: 0, label: "Russian" },
+  location: { id: 0, label: "Ukrain" },
+  theme: { id: 0, label: "Device theme" },
+  mode: { id: 0, label: "Off" },
+});
+
+const setOption = (option) => {
+  dropdownOptions[option.name] = option.value;
+};
+
+const menu = computed(() => {
+  const dropdowns = {
+    main: DropdownSettingsMain,
+    appearance: DropdownSettingsAppearance,
+    language: DropdownSettingsLanguage,
+    mode: DropdownSettingsMode,
+    location: DropdownSettingsLocation,
+    switch: DropdownSettingsSwitchUser,
+  };
+
+  return dropdowns[selectedMenu.value];
+});
+
+const trigger = ref(null);
+const activeDropdownRef = ref(null);
+
+const showSelectedMenu = (menu) => {
+  selectedMenu.value = menu;
+  isOpenMain.value = true;
+};
+
+const triggerContainer = ref(null);
 
 const handleClickOutside = (event) => {
-  if (wrapper.value && !wrapper.value.contains(event.target)) {
-    isOpen.value = false;
+  if (
+    triggerContainer.value &&
+    !triggerContainer.value.contains(event.target)
+  ) {
+    isOpenMain.value = false;
+    selectedMenu.value = "";
   }
 };
 
-onMounted(() => window.addEventListener("click", handleClickOutside));
-onUnmounted(() => window.removeEventListener("click", handleClickOutside));
-
-function handleKeydown(event) {
+const handleKeydown = (event) => {
   if (event.key === "Escape") {
-    isOpen.value = false;
+    isOpenMain.value = false;
+    selectedMenu.value = "";
   }
-}
+};
 
-watch(
-  () => isOpen.value,
-  (newVal) => {
-    if (newVal) {
-      window.addEventListener("keydown", handleKeydown);
-    } else {
-      window.removeEventListener("keydown", handleKeydown);
-    }
-  },
-);
+onMounted(() => {
+  window.addEventListener("click", handleClickOutside);
+});
 
 onUnmounted(() => {
+  window.removeEventListener("click", handleClickOutside);
   window.removeEventListener("keydown", handleKeydown);
+});
+
+watch(isOpenMain, (newVal) => {
+  if (newVal) {
+    window.addEventListener("keydown", handleKeydown);
+  } else {
+    window.removeEventListener("keydown", handleKeydown);
+  }
 });
 </script>
 
 <template>
-  <div class="relative" ref="wrapper">
-    <img
-      :src="`https://picsum.photos/200/200`"
-      alt="video_preview"
-      class="mr-2 h-10 w-10 rounded-full"
-      @click="isOpen = true"
-    />
-  </div>
-  <transition
-    enter-active-class="transition duration-100 ease-linear"
-    enter-from-class="opacity-0 scale-50 -translate-y-20"
-    enter-to-class="opacity-100 scale-100 tranlate-y-0"
-    leave-active-class="transition duration-100 ease-linear"
-    leave-from-class="opacity-100 scale-100 -translate-y-0 "
-    leave-to-class="opacity-0 -translate-y-20 scale-50"
-  >
-    <section
-      v-if="isOpen"
-      class="fixed top-12 right-4 w-[300px] overflow-auto rounded-2xl bg-[#242424] peer-checked:block"
-    >
-      <div class="mx-2 flex">
-        <img
-          :src="`https://picsum.photos/500/500`"
-          alt="video_preview"
-          class="m-2 h-10 w-10 rounded-full"
-        />
-        <div class="flex flex-col items-start py-2">
-          <span>John Doe</span>
-          <span>@Joundoe12</span>
-          <a href="#" class="cursor-pointer py-1 text-blue-400 outline-none"
-            >View your channel</a
-          >
-        </div>
-      </div>
-      <hr class="my-1 py-1 text-[#555555]" />
-      <ul class="text-sm">
-        <li v-for="item in settingItems" :key="item.label">
-          <DropdownSettingListItem :item="item" />
-        </li>
-      </ul>
-    </section>
-  </transition>
-</template>
+  <div ref="triggerContainer">
+    <div class="relative" ref="trigger" @click.stop="showSelectedMenu('main')">
+      <img
+        :src="`https://picsum.photos/200/200`"
+        alt="video_preview"
+        class="mr-2 h-10 w-10 rounded-full"
+      />
+    </div>
 
-<style lang="scss" scoped></style>
+    <transition
+      enter-active-class="transition duration-200 ease-linear"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition duration-200 ease-linear"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <component
+        v-if="isOpenMain"
+        :is="menu"
+        @set-option="setOption"
+        @select-menu="showSelectedMenu"
+        ref="activeDropdownRef"
+        :dropdown-options="dropdownOptions"
+      ></component>
+    </transition>
+  </div>
+</template>

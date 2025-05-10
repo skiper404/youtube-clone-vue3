@@ -14,7 +14,9 @@ const clearInput = () => (text.value = "");
 
 <template>
   <form class="fixed top-2 right-0 left-0 z-20 flex items-center bg-black px-2">
-    <ArrowLeftIcon class="h-10 cursor-pointer" @click="emit('hideInput')" />
+    <BaseTooltip label="Back">
+      <ArrowLeftIcon class="h-8 cursor-pointer" @click="emit('hideInput')" />
+    </BaseTooltip>
     <input
       type="text"
       class="ml-2 w-full rounded-l-full border border-neutral-800 px-4 py-2 outline-0"

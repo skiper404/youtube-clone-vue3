@@ -6,7 +6,7 @@ import TheSearchInputSmall from "./TheSearchInputSmall.vue";
 import BaseTooltip from "./BaseTooltip.vue";
 import { ref } from "vue";
 
-const isShownInput = ref(true);
+const isShownInput = ref(false);
 
 const showInput = () => (isShownInput.value = true);
 const hideInput = () => (isShownInput.value = false);
