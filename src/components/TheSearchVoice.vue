@@ -58,7 +58,7 @@ onUnmounted(() => {
       class="fixed inset-0 z-10 cursor-pointer justify-center bg-black/50"
     >
       <div
-        class="relative mx-auto mt-10 flex h-[400px] w-[500px] rounded-xl bg-[#242424] p-4"
+        class="relative mx-auto mt-10 flex h-[400px] w-full rounded-xl bg-[#242424] p-4 sm:w-[500px]"
       >
         <button
           class="absolute top-4 right-4 cursor-pointer rounded-full hover:bg-neutral-700"
