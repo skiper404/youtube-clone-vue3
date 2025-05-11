@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from "vue";
 import DropdownSettingListItem from "./DropdownSettingListItem.vue";
+import DropdownMainHeader from "./DropdownMainHeader.vue";
 const props = defineProps({ dropdownOptions: Object });
 const emit = defineEmits({ selectMenu: null, setOption: null });
 
@@ -47,20 +48,7 @@ const settingItems = reactive([
   <section
     class="fixed top-14 right-4 w-[300px] overflow-auto rounded-2xl bg-[#242424]"
   >
-    <div class="mx-2 flex">
-      <img
-        :src="`https://picsum.photos/500/500`"
-        alt="video_preview"
-        class="m-2 h-10 w-10 rounded-full"
-      />
-      <div class="flex flex-col items-start py-2 text-sm">
-        <span>John Doe</span>
-        <span>@Joundoe12</span>
-        <a href="#" class="cursor-pointer py-1 text-blue-400 outline-none"
-          >View your channel</a
-        >
-      </div>
-    </div>
+    <DropdownMainHeader />
     <hr class="my-1 py-1 text-[#555555]" />
     <ul class="text-sm">
       <li
@@ -77,5 +65,3 @@ const settingItems = reactive([
     </ul>
   </section>
 </template>
-
-<style lang="scss" scoped></style>

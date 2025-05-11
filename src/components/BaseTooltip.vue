@@ -4,6 +4,10 @@ import { ref } from "vue";
 const props = defineProps({ label: String, top: Boolean });
 
 const isShown = ref(false);
+const classes = [
+  "absolute left-1/2 z-20 -translate-x-1/2 rounded-lg bg-[#444444] px-3 py-1 text-xs font-light whitespace-nowrap text-white",
+  { "-top-8": props.top },
+];
 
 const showTooltip = () => (isShown.value = true);
 const hideTooltip = () => (isShown.value = false);
@@ -26,14 +30,11 @@ const hideTooltip = () => (isShown.value = false);
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div
-        :class="`absolute ${top ? '-top-8' : 'top-12'} left-1/2 z-20 -translate-x-1/2 rounded-lg bg-[#444444] px-3 py-1 text-xs font-light whitespace-nowrap text-white`"
-        v-if="isShown"
-      >
+      <div :class="classes" v-if="isShown">
         {{ label }}
       </div>
     </transition>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+

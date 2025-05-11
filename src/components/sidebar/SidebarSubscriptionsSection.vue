@@ -1,5 +1,4 @@
 <script setup>
-import SidebarItem from "./SidebarItem.vue";
 import { SignalIcon } from "@heroicons/vue/24/outline";
 
 const subscriptionsSection = [
@@ -35,5 +34,3 @@ const subscriptionsSection = [
   </ul>
   <hr class="m-2 border-1 border-[#373737]" />
 </template>
-
-<style lang="scss" scoped></style>

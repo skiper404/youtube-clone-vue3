@@ -1,5 +1,5 @@
 <script setup>
-import BaseIcon from "./BaseIcon.vue";
+import BaseIcon from "../BaseIcon.vue";
 
 const props = defineProps(["item"]);
 </script>
@@ -7,7 +7,6 @@ const props = defineProps(["item"]);
 <template>
   <a href="#" class="flex items-center gap-4 px-6 outline-none">
     <BaseIcon :name="item.icon" />
-    <hr />
     <span> {{ item.label }} </span>
   </a>
 </template>

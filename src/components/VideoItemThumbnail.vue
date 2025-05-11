@@ -51,5 +51,3 @@ const enableSubtitles = ref(true);
     </span>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

@@ -18,5 +18,3 @@ const emit = defineEmits({ back: null });
     {{ desctiption }}
   </div>
 </template>
-
-<style lang="scss" scoped></style>

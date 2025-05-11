@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import CategoryItem from "./CategoryItem.vue";
+import CategoryList from "./CategoryList.vue";
+import BlurLayout from "./BlurLayout.vue";
 
 const categories = [
   "All",
@@ -21,23 +22,19 @@ const categories = [
 ];
 
 const isActive = ref("All");
+
+const setActive = (category) => (isActive.value = category);
 </script>
 
 <template>
   <section
-    class="fixed top-2 right-0 left-0 z-10 bg-[#121212]/95 p-2 text-[16px] md:left-36 xl:left-66"
+    class="fixed top-14 right-0 left-0 z-10 bg-[#121212]/95 p-1 text-[16px] md:left-36 xl:left-66"
   >
-    <div
-      class="pointer-events-none absolute inset-0 -z-10 backdrop-blur-xs"
-    >
-
-</div>
-    <ul
-      class="scrollbar-hide flex items-center gap-2 overflow-auto px-2 py-1 whitespace-nowrap"
-    >
-      <li v-for="category in categories" :key="category">
-        <CategoryItem :category="category" :is-active="isActive" />
-      </li>
-    </ul>
+    <BlurLayout />
+    <CategoryList
+      :categories="categories"
+      :is-active="isActive"
+      @set-active="setActive"
+    />
   </section>
 </template>

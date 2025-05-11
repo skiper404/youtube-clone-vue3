@@ -1,15 +1,15 @@
 <script setup>
-import SidebarSmallItem from "./SidebarAsidetem.vue";
+import SidebarSmallItem from "./sidebar/SidebarAsidetem.vue";
 
-import SidebarMainSection from "./SidebarMainSection.vue";
-import SidebarYouSection from "./SidebarYouSection.vue";
-import SidebarSubscriptionsSection from "./SidebarSubscriptionsSection.vue";
-import SidebarExploreSection from "./SidebarExploreSection.vue";
-import SidebarMoreSection from "./SidebarMoreSection.vue";
-import SidebarSettingsSection from "./SidebarSettingsSection.vue";
-import SidebarFooterA from "./SidebarFooterA.vue";
-import SidebarFooterB from "./SidebarFooterB.vue";
-import SidebarCopyright from "./SidebarCopyright.vue";
+import SidebarMainSection from "./sidebar/SidebarMainSection.vue";
+import SidebarYouSection from "./sidebar/SidebarYouSection.vue";
+import SidebarSubscriptionsSection from "./sidebar/SidebarSubscriptionsSection.vue";
+import SidebarExploreSection from "./sidebar/SidebarExploreSection.vue";
+import SidebarMoreSection from "./sidebar/SidebarMoreSection.vue";
+import SidebarSettingsSection from "./sidebar/SidebarSettingsSection.vue";
+import SidebarFooterA from "./sidebar/SidebarFooterA.vue";
+import SidebarFooterB from "./sidebar/SidebarFooterB.vue";
+import SidebarCopyright from "./sidebar/SidebarCopyright.vue";
 
 import MenuLogoGroup from "./MenuLogoGroup.vue";
 const sidebarItems = [

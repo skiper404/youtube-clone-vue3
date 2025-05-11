@@ -2,7 +2,7 @@
 import DropdownSettings from "./DropdownSettings.vue";
 import DropdownNotifications from "./DropdownNotifications.vue";
 import DropdownCreate from "./DropdownCreate.vue";
-import BaseTooltip from "./BaseTooltip.vue";
+import BaseTooltip from "../BaseTooltip.vue";
 </script>
 
 <template>
@@ -18,5 +18,3 @@ import BaseTooltip from "./BaseTooltip.vue";
     </BaseTooltip>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

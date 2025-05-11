@@ -17,5 +17,3 @@ const moreSection = [
   </ul>
   <hr class="m-2 border-1 border-[#373737]" />
 </template>
-
-<style lang="scss" scoped></style>

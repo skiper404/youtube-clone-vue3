@@ -1,8 +1,7 @@
 <script setup>
-import { BellIcon } from "@heroicons/vue/24/outline";
 import { onMounted, onUnmounted, ref, watch } from "vue";
-import DropdownNotificationListItem from "./DropdownNotificationListItem.vue";
-import BaseIcon from "./BaseIcon.vue";
+import DropdownNotificationsButton from "./DropdownNotificationsButton.vue";
+import DropdownNotificatiosList from "./DropdownNotificatiosList.vue";
 
 const notificationItems = [
   { label: "Arthas is live: Последний из вас", release: "1 day ago" },
@@ -56,12 +55,7 @@ watch(
 
 <template>
   <div class="relative" ref="wrapper">
-    <button
-      class="cursor-pointer rounded-full p-1 hover:bg-neutral-600"
-      @click="isOpen = true"
-    >
-      <BellIcon class="size-7" />
-    </button>
+    <DropdownNotificationsButton v-model:isOpen="isOpen" />
     <transition
       enter-active-class="transition duration-100 ease-linear"
       enter-from-class="opacity-0 scale-50 -translate-y-20"
@@ -70,25 +64,10 @@ watch(
       leave-from-class="opacity-100 scale-100 -translate-y-0 "
       leave-to-class="opacity-0 -translate-y-20 scale-50"
     >
-      <section
+      <DropdownNotificatiosList
         v-if="isOpen"
-        class="fixed top-12 right-18 w-[500px] rounded-2xl bg-[#242424] pb-4 text-sm"
-      >
-        <div class="flex items-center justify-between p-4">
-          <span> Notifications </span>
-          <BaseIcon name="user-settings" />
-        </div>
-        <hr class="my-1 py-1 text-[#555555]" />
-        <div>
-          <ul class="flex flex-col divide-y divide-[#555555]">
-            <li v-for="item in notificationItems" :key="item.label">
-              <DropdownNotificationListItem :item="item" />
-            </li>
-          </ul>
-        </div>
-      </section>
+        :notificationItems="notificationItems"
+      />
     </transition>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

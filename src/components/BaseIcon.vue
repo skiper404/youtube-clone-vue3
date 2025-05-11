@@ -1,5 +1,6 @@
 <script setup>
 import { icons } from "@/icons";
+
 const path = defineProps({ name: String });
 </script>
 

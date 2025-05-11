@@ -1,12 +1,10 @@
 <script setup>
 import DropdownSettingListItem from "./DropdownSettingListItem.vue";
 import DropdownSettingsHeader from "./DropdownSettingsHeader.vue";
-
 const props = defineProps({ dropdownOptions: Object });
+const modeItems = ["On", "Off"];
 
-const languages = ["Russian", "Ukrainian", "English"];
-
-const emit = defineEmits({ setOption: null });
+const emit = defineEmits({ selectMenu: null });
 </script>
 
 <template>
@@ -14,19 +12,19 @@ const emit = defineEmits({ setOption: null });
     class="fixed top-14 right-4 w-[300px] overflow-auto rounded-2xl bg-[#242424] peer-checked:block"
   >
     <DropdownSettingsHeader
-      label="Location"
+      label="Restricted Mode"
       description="Setting applies to this browser"
       @back="emit('select-menu', 'main')"
     />
     <ul class="text-sm">
-      <li v-for="(languageName, languageId) in languages" :key="languageId">
+      <li v-for="(mode, modeId) in modeItems" :key="modeId">
         <DropdownSettingListItem
-          :label="languageName"
-          :active="languageId === dropdownOptions.language.id"
+          :label="mode"
+          :active="modeId === dropdownOptions.mode.id"
           @click="
             emit('setOption', {
-              name: 'language',
-              value: { id: languageId, label: languageName },
+              name: 'mode',
+              value: { id: modeId, label: mode },
             })
           "
         />
@@ -34,5 +32,3 @@ const emit = defineEmits({ setOption: null });
     </ul>
   </section>
 </template>
-
-<style lang="scss" scoped></style>

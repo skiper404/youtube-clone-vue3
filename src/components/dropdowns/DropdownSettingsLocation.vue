@@ -42,4 +42,3 @@ const emit = defineEmits({ setOption: null });
     </ul>
   </section>
 </template>
-<style lang="scss" scoped></style>

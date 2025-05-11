@@ -1,7 +1,7 @@
 <script setup>
 import SearchGroup from "./SearchGroup.vue";
 import MenuLogoGroup from "./MenuLogoGroup.vue";
-import DropdownGroup from "./DropdownGroup.vue";
+import DropdownGroup from "./dropdowns/DropdownGroup.vue";
 
 const emit = defineEmits({ openSidebar: null });
 </script>

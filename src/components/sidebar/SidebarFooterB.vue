@@ -16,5 +16,3 @@ const footer = [
     </li>
   </ul>
 </template>
-
-<style lang="scss" scoped></style>

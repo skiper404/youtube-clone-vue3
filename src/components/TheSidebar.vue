@@ -1,15 +1,15 @@
 <script setup>
 import { watch, onUnmounted } from "vue";
-import SidebarMainSection from "./SidebarMainSection.vue";
-import SidebarYouSection from "./SidebarYouSection.vue";
-import SidebarSubscriptionsSection from "./SidebarSubscriptionsSection.vue";
-import SidebarExploreSection from "./SidebarExploreSection.vue";
-import SidebarMoreSection from "./SidebarMoreSection.vue";
-import SidebarSettingsSection from "./SidebarSettingsSection.vue";
-import SidebarFooterA from "./SidebarFooterA.vue";
-import SidebarFooterB from "./SidebarFooterB.vue";
-import SidebarCopyright from "./SidebarCopyright.vue";
-import SidebarOverlay from "./SidebarOverlay.vue";
+import SidebarMainSection from "./sidebar/SidebarMainSection.vue";
+import SidebarYouSection from "./sidebar/SidebarYouSection.vue";
+import SidebarSubscriptionsSection from "./sidebar/SidebarSubscriptionsSection.vue";
+import SidebarExploreSection from "./sidebar/SidebarExploreSection.vue";
+import SidebarMoreSection from "./sidebar/SidebarMoreSection.vue";
+import SidebarSettingsSection from "./sidebar/SidebarSettingsSection.vue";
+import SidebarFooterA from "./sidebar/SidebarFooterA.vue";
+import SidebarFooterB from "./sidebar/SidebarFooterB.vue";
+import SidebarCopyright from "./sidebar/SidebarCopyright.vue";
+import SidebarOverlay from "./sidebar/SidebarOverlay.vue";
 import MenuLogoGroup from "./MenuLogoGroup.vue";
 
 const props = defineProps({ isOpen: Boolean });

@@ -1,15 +1,16 @@
 <script setup>
-import { defineEmits, ref } from "vue";
+import { defineEmits } from "vue";
 import BaseTooltip from "./BaseTooltip.vue";
-import { XMarkIcon, MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
+import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
+import SearchButton from "./SearchButton.vue";
+const props = defineProps({ query: String, queryModifiers: Object });
 
-const emit = defineEmits({
-  hideInput: null,
-});
+const emit = defineEmits({ "update:query": null, hideInput: null });
 
-const text = ref("");
-const clearInput = () => (text.value = "");
+const updateQuery = (query) => {
+  emit("update:query", query);
+};
 </script>
 
 <template>
@@ -21,22 +22,18 @@ const clearInput = () => (text.value = "");
       type="text"
       class="ml-2 w-full rounded-l-full border border-neutral-800 px-4 py-2 outline-0"
       placeholder="Search"
-      v-model="text"
+      :value="query"
+      @input="updateQuery($event.target.value)"
     />
     <button
       type="button"
       class="absolute top-0 right-20 cursor-pointer"
-      @click="clearInput"
+      @click="updateQuery('')"
     >
       <XMarkIcon class="h-10 p-1" />
     </button>
     <BaseTooltip label="Search">
-      <button
-        type="submit"
-        class="cursor-pointer rounded-r-full border-neutral-800 bg-neutral-800 px-4 py-2 hover:bg-neutral-600"
-      >
-        <MagnifyingGlassIcon class="h-6" />
-      </button>
+      <SearchButton />
     </BaseTooltip>
   </form>
 </template>

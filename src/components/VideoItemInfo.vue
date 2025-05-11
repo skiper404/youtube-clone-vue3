@@ -57,5 +57,3 @@ const emit = defineEmits({ setOpenIndex: null });
     </transition>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

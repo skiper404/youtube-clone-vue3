@@ -1,9 +1,10 @@
 <script setup>
 import DropdownSettingListItem from "./DropdownSettingListItem.vue";
 import DropdownSettingsHeader from "./DropdownSettingsHeader.vue";
+
 const props = defineProps({ dropdownOptions: Object });
 
-const themeItems = ["Use device theme", "Dark theme", "Light theme"];
+const languages = ["Russian", "Ukrainian", "English"];
 
 const emit = defineEmits({ setOption: null });
 </script>
@@ -13,19 +14,19 @@ const emit = defineEmits({ setOption: null });
     class="fixed top-14 right-4 w-[300px] overflow-auto rounded-2xl bg-[#242424] peer-checked:block"
   >
     <DropdownSettingsHeader
-      label="Appearence"
+      label="Location"
       description="Setting applies to this browser"
       @back="emit('select-menu', 'main')"
     />
     <ul class="text-sm">
-      <li v-for="(themeName, themeId) in themeItems" :key="themeId">
+      <li v-for="(languageName, languageId) in languages" :key="languageId">
         <DropdownSettingListItem
-          :label="themeName"
-          :active="themeId === dropdownOptions.theme.id"
+          :label="languageName"
+          :active="languageId === dropdownOptions.language.id"
           @click="
             emit('setOption', {
-              name: 'theme',
-              value: { id: themeId, label: themeName },
+              name: 'language',
+              value: { id: languageId, label: languageName },
             })
           "
         />
@@ -33,5 +34,3 @@ const emit = defineEmits({ setOption: null });
     </ul>
   </section>
 </template>
-
-<style lang="scss" scoped></style>
